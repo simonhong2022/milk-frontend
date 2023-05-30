@@ -3,27 +3,43 @@ import { types } from "@/type/type";
 import MilkCard from "./MilkCard"
 import { Header, Card, Icon, Popup } from 'semantic-ui-react'
 import { useEffect, useState } from "react";
+import { isEmptyStatement } from "typescript";
 
 type MilkContentProps = {
     milks: IMilk[],
-    filterValue: string
+    filterValue: string[],
+    searchValue: string
 }
 
 export default function MilkContent(props: MilkContentProps) {
 
-    const { milks, filterValue } = props;
+    const { milks, filterValue, searchValue } = props;
 
     return (
         <div className="milk-card-container">
-            {milks./*filter((milk) => milk.type === filterValue).*/map(milk => {
+            {types.filter((type) => {
+                if (!Array.isArray(filterValue) || filterValue.length == 0) {
+                    return true;
+                }
+                return filterValue.includes(type.text);
+            }).map(type => {
                 return (
-                    <main>
-                        <Card.Group className="milk.card.group" >
-                            <MilkCard key={milk.id} milk={milk} />
+                    <div>
 
-                        </Card.Group>
+                        {milks.filter(milk => milk.type === type.text).filter(milk => {
+                            if (searchValue === "") {
+                                return true;
+                            }
+                            return milk.name.toLowerCase().includes(searchValue);
+                        }).map((milk) => {
+                            return (
 
-                    </main>
+                                <MilkCard key={milk.id} milk={milk} />
+
+                            )
+                        })}
+                    </div>
+
                 )
             })}
 

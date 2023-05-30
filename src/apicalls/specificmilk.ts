@@ -7,17 +7,17 @@ export type MilkRequestDto = {
 
 const BASE_PATH = process.env.NEXT_PUBLIC_PORT;
 
-export async function fetchMilk(id: string, setMilk: Dispatch<SetStateAction<IMilk>>, setPhotoUrl: Dispatch<SetStateAction<string>>) {
+export async function fetchMilk(id: string | string[], setMilk: Dispatch<SetStateAction<IMilk>>) {
     const response = await fetch(`${BASE_PATH}/${id}`);
     const responseData: IMilk = await response.json();
     setMilk(responseData);
 }
 
-export async function updateMilk(id: string, event: React.FormEvent<HTMLFormElement>, setMilk: Dispatch<SetStateAction<IMilk>>, setOpen: Dispatch<SetStateAction<boolean>>,
-    setErrMessage: Dispatch<SetStateAction<string>>, setPhotoUrl: Dispatch<SetStateAction<string>>) {
+export async function updateMilk(id: string , event: React.FormEvent<HTMLFormElement>, setMilk: Dispatch<SetStateAction<IMilk>>, setOpen: Dispatch<SetStateAction<boolean>>,
+    setErrMessage: Dispatch<SetStateAction<string>>) {
 
     const reqBody: MilkRequestDto = {
-        storage: event.currentTarget.storage.value
+        storage: event.currentTarget.order.value
     };
 
     if (!reqBody.storage || reqBody.storage < 0) {
@@ -32,7 +32,7 @@ export async function updateMilk(id: string, event: React.FormEvent<HTMLFormElem
     };
 
     const response = await fetch(`${BASE_PATH}/${id}`, reqOptions);
-    await fetchMilk(id, setMilk, setPhotoUrl);
+    await fetchMilk(id, setMilk);
     setOpen(false);
     setErrMessage('');
 }

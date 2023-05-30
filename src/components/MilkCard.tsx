@@ -19,6 +19,7 @@ export default function MilkCard(props: MilkCardProps) {
                 <Card.Content>
                     <Card.Header>{milk.name}</Card.Header>
                     <Card.Meta>Type of Milk: {milk.type}</Card.Meta>
+                    <Card.Meta>Storage: {milk.storage}liter</Card.Meta>
                 </Card.Content>
             </Card>
         </main>

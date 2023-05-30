@@ -5,12 +5,18 @@ import { IMilk, fetchMilks } from '@/apicalls/milk'
 import { Header, Icon } from 'semantic-ui-react'
 import MilkContent from '@/components/MilkContent'
 import TypeFilter from '@/components/TypeFilter'
+import Searchbar from '@/components/Searchbar'
 
 
 export default function Home() {
 
-  const [filterValue, setFilterValue] = useState('all');
-  const filterChanged = (value: string) => {
+  const [searchValue, setSearchValue] = useState<string>("");
+  const searchChanged = (text: string) => {
+    setSearchValue(text);
+  }
+
+  const [filterValue, setFilterValue] = useState<string[]>([]);
+  const filterChanged = (value: string[]) => {
     setFilterValue(value);
   }
   const [milks, setMilks] = useState<IMilk[]>([]);
@@ -34,11 +40,14 @@ export default function Home() {
         <Header className="home-header" as='h1' icon textAlign='center' inverted color='pink'>
           <Header.Content>The Milk Store</Header.Content>
         </Header>
+        <div className="home-search">
+        <Searchbar milks={milks} searchChanged={searchChanged} />
+        </div>
         <div className="home-filter">
         <TypeFilter filterChanged={filterChanged} />
         </div>
         <div className="home-contents-container">
-          <MilkContent milks={milks} filterValue={filterValue} />
+          <MilkContent milks={milks} filterValue={filterValue} searchValue={searchValue} />
         </div>
       </main>
     </>
