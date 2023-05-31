@@ -6,15 +6,12 @@ type TypeFilterProps = {
 }
 
 export default function TypeFilter(props: TypeFilterProps) {
-    const {filterChanged} = props;
+    const { filterChanged } = props;
 
     return (
         <Dropdown
-            placeholder='Select Type'
-            fluid
+            text='Filter'
             multiple
-            clearable
-            selection
             options={types}
             onChange={(e, data) => {
                 const filterValue = data.value as string[];

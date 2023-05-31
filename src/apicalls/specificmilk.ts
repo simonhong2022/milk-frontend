@@ -13,11 +13,11 @@ export async function fetchMilk(id: string | string[], setMilk: Dispatch<SetStat
     setMilk(responseData);
 }
 
-export async function updateMilk(id: string , event: React.FormEvent<HTMLFormElement>, setMilk: Dispatch<SetStateAction<IMilk>>, setOpen: Dispatch<SetStateAction<boolean>>,
+export async function updateMilk(id: string , amount: number, setMilk: Dispatch<SetStateAction<IMilk>>, setOpen: Dispatch<SetStateAction<boolean>>,
     setErrMessage: Dispatch<SetStateAction<string>>) {
 
     const reqBody: MilkRequestDto = {
-        storage: event.currentTarget.order.value
+        storage: amount
     };
 
     if (!reqBody.storage || reqBody.storage < 0) {

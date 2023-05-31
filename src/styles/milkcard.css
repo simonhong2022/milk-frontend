@@ -1,0 +1,14 @@
+.milkcard-main {
+    margin: 5%
+}
+
+.ui.card>.image, .ui.cards>.card>.image {
+    text-align: center;
+}
+.ui.card>.image:not(.ui)>img, .ui.cards>.card>.image:not(.ui)>img {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
+}

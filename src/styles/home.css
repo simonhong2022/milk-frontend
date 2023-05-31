@@ -1,0 +1,42 @@
+.ui.pink.icon.inverted.center.aligned.header.home-header {
+    margin-top: 2%;
+}
+
+.home-body {
+  background-color: bisque;
+}
+
+.home-search-filter {
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.home-search {
+    margin-left: 10%;
+}
+
+.ui.form .field .ui.input {
+    width: 81%;
+}
+
+
+.home-filter {
+    margin-right: 10%;
+}
+
+.ui.multiple.dropdown{
+    padding-right: 0%;
+}
+
+.home-products {
+    margin-left: 10%;
+}
+
+.home-contents-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

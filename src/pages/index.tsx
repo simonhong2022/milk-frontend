@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { IMilk, fetchMilks } from '@/apicalls/milk'
-import { Header, Icon } from 'semantic-ui-react'
+import { Header, Icon, Pagination } from 'semantic-ui-react'
 import MilkContent from '@/components/MilkContent'
 import TypeFilter from '@/components/TypeFilter'
 import Searchbar from '@/components/Searchbar'
@@ -40,16 +39,23 @@ export default function Home() {
         <Header className="home-header" as='h1' icon textAlign='center' inverted color='pink'>
           <Header.Content>The Milk Store</Header.Content>
         </Header>
-        <div className="home-search">
-        <Searchbar milks={milks} searchChanged={searchChanged} />
-        </div>
-        <div className="home-filter">
-        <TypeFilter filterChanged={filterChanged} />
-        </div>
-        <div className="home-contents-container">
+        <div className="home-body">
+          <div className="home-search-filter">
+            <div className="home-search">
+              <Searchbar milks={milks} searchChanged={searchChanged} />
+            </div>
+            <div className="home-filter">
+              <TypeFilter filterChanged={filterChanged} />
+            </div>
+          </div>
+          <p className="home-products">{milks.length}products</p>
           <MilkContent milks={milks} filterValue={filterValue} searchValue={searchValue} />
         </div>
+        <div>
+        <Pagination defaultActivePage={1} totalPages={3} />
+        </div>
       </main>
+
     </>
   )
 }
