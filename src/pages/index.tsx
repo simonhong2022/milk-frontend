@@ -18,7 +18,10 @@ export default function Home() {
   const filterChanged = (value: string[]) => {
     setFilterValue(value);
   }
+  
   const [milks, setMilks] = useState<IMilk[]>([]);
+
+  let [products, setProducts] = useState(0);
 
   useEffect(() => {
     fetchMilks(setMilks);
@@ -48,8 +51,8 @@ export default function Home() {
               <TypeFilter filterChanged={filterChanged} />
             </div>
           </div>
-          <p className="home-products">{milks.length}products</p>
-          <MilkContent milks={milks} filterValue={filterValue} searchValue={searchValue} />
+          <p className="home-products">{products}products</p>
+          <MilkContent milks={milks} filterValue={filterValue} searchValue={searchValue} products={products} setProducts={setProducts}/>
         </div>
         <div>
         <Pagination defaultActivePage={1} totalPages={3} />

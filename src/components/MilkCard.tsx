@@ -5,14 +5,18 @@ import { Card, Image } from "semantic-ui-react";
 
 type MilkCardProps = {
     milk: IMilk;
+    products: number;
+    setProducts: Dispatch<SetStateAction<number>>;
+
 }
 
 export default function MilkCard(props: MilkCardProps) {
 
-    const {milk} = props;
+    let { milk, products, setProducts } = props;
     const [photoUrl, setPhotoUrl] = useState<string>("");
-   
+    
     return (
+
         <main className="milkcard-main">
             <Card color="green" href={"/" + milk.id}>
                 <Image src="/milk.png" alt="milk" wrapped ui={false} />

@@ -5,7 +5,7 @@ This project is intended to make a proper website for online milk store business
 
 The milk at this store is sold by the liter, and if you thought there was only one type of milk you are waay off! There will be several different types of milk, and you can easily find the type you want.
 
-You can checkout deployment of this project here. https://tiny-blog-neon.vercel.app/
+You can checkout deployment of this project here. https://milk-frontend-rwf8.vercel.app/
 
 ### How to use
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

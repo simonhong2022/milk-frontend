@@ -68,6 +68,7 @@ export default function Specificmilk() {
                                         }}
                                         onConfirm={(e) => {
                                             setOrderopen(false);
+                                            setAmount(0);
                                             updateMilk(milk.id, amount, setMilk, setOpen, setErrMessage)
                                         }} />
                                 </Form>
