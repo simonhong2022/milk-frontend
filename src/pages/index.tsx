@@ -54,9 +54,7 @@ export default function Home() {
           <p className="home-products">{products}products</p>
           <MilkContent milks={milks} filterValue={filterValue} searchValue={searchValue} products={products} setProducts={setProducts}/>
         </div>
-        <div>
-        <Pagination defaultActivePage={1} totalPages={3} />
-        </div>
+        
       </main>
 
     </>
