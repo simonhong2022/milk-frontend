@@ -9,7 +9,7 @@ export interface IMilk {
 }
 
 const BASE_PATH = process.env.NEXT_PUBLIC_PORT;
-/*
+
 export async function fetchMilks(setMilks: Dispatch<SetStateAction<IMilk[]>>) {
 
     const response = await fetch(BASE_PATH!);
@@ -17,9 +17,9 @@ export async function fetchMilks(setMilks: Dispatch<SetStateAction<IMilk[]>>) {
     setMilks(responseData);
 
 }
-*/
 
+/*
 export function fetchMilks(setMilks: Dispatch<SetStateAction<IMilk[]>>) {
     setMilks(mockdata.results);
 }
-
+*/
